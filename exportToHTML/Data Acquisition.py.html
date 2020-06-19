@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>Data Acquisition.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #629755; font-style: italic;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #cc7832;}
+.s3 { color: #6a8759;}
+.s4 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Data Acquisition.py</font>
+</center></td></tr></table>
+<pre><span class="s0">&quot;&quot;&quot; Below, I have imported a csv file that was downloaded from kaggle. This file is a dataset that includes information 
+gathered from anonymous persons about their annual income. The income levels are divided into two brackets, salaries 
+less than or equal to $50,000, and salaries more than $50,000. The dataset also includes a variety of demographic info 
+such as: age, occupation, race, native nationality, education level, etc.. 
+ 
+The purpose of my project is to present the salaries of these anonymous people and explore possible trends/relationships 
+between different variables such as race, gender, education, etc.&quot;&quot;&quot;</span>
+
+<span class="s2">import </span><span class="s1">pandas </span><span class="s2">as </span><span class="s1">pd</span>
+<span class="s2">import </span><span class="s1">csv</span>
+<span class="s2">import </span><span class="s1">statistics</span>
+
+<span class="s1">df = pd.read_csv (</span><span class="s3">r'C:\Users\dilla\OneDrive\Documents\School\MIS 5400\Final Project\adult-income.csv'</span><span class="s1">)</span>
+
+<span class="s1">df.rename(columns={</span><span class="s3">'39'</span><span class="s1">: </span><span class="s3">'Age'</span><span class="s1">}</span><span class="s2">, </span><span class="s1">inplace=</span><span class="s2">True</span><span class="s1">)</span>
+<span class="s1">df.rename(columns={</span><span class="s3">'State-gov'</span><span class="s1">: </span><span class="s3">'Sector'</span><span class="s1">}</span><span class="s2">, </span><span class="s1">inplace=</span><span class="s2">True</span><span class="s1">)</span>
+<span class="s1">df.rename(columns={</span><span class="s3">'Bachelors'</span><span class="s1">: </span><span class="s3">'Education level'</span><span class="s1">}</span><span class="s2">, </span><span class="s1">inplace=</span><span class="s2">True</span><span class="s1">)</span>
+<span class="s1">df.rename(columns={</span><span class="s3">'Never-married'</span><span class="s1">: </span><span class="s3">'Marital status'</span><span class="s1">}</span><span class="s2">, </span><span class="s1">inplace=</span><span class="s2">True</span><span class="s1">)</span>
+<span class="s1">df.rename(columns={</span><span class="s3">'Adm-clerical'</span><span class="s1">: </span><span class="s3">'Employment field'</span><span class="s1">}</span><span class="s2">, </span><span class="s1">inplace=</span><span class="s2">True</span><span class="s1">)</span>
+<span class="s1">df.rename(columns={</span><span class="s3">'White'</span><span class="s1">: </span><span class="s3">'Race'</span><span class="s1">}</span><span class="s2">, </span><span class="s1">inplace=</span><span class="s2">True</span><span class="s1">)</span>
+<span class="s1">df.rename(columns={</span><span class="s3">'Male'</span><span class="s1">: </span><span class="s3">'Gender'</span><span class="s1">}</span><span class="s2">, </span><span class="s1">inplace=</span><span class="s2">True</span><span class="s1">)</span>
+<span class="s1">df.rename(columns={</span><span class="s3">'40'</span><span class="s1">: </span><span class="s3">'Hrs per wk'</span><span class="s1">}</span><span class="s2">, </span><span class="s1">inplace=</span><span class="s2">True</span><span class="s1">)</span>
+<span class="s1">df.rename(columns={</span><span class="s3">'United-States'</span><span class="s1">: </span><span class="s3">'Native nationality'</span><span class="s2">, </span><span class="s1">}</span><span class="s2">, </span><span class="s1">inplace=</span><span class="s2">True</span><span class="s1">)</span>
+<span class="s1">df.rename(columns={</span><span class="s3">'&lt;=50K'</span><span class="s1">: </span><span class="s3">'Income bracket'</span><span class="s1">}</span><span class="s2">, </span><span class="s1">inplace=</span><span class="s2">True</span><span class="s1">)</span>
+<span class="s1">df = df.drop(df.columns[[</span><span class="s4">2</span><span class="s2">, </span><span class="s4">4</span><span class="s2">, </span><span class="s4">7</span><span class="s2">, </span><span class="s4">10</span><span class="s2">, </span><span class="s4">11</span><span class="s1">]]</span><span class="s2">, </span><span class="s1">axis=</span><span class="s4">1</span><span class="s1">)</span>
+<span class="s1">df = df.drop(df.)</span>
+
+<span class="s1">print(df)</span>
+
+<span class="s3">&quot;&quot;&quot; With the code above, I am attempting to format and cleanse some of the data before loading it in a separate datbase,  
+hopefully that will make it easier to query the information I'm looking for. I am trying to rename some of the  
+columns to have more descriptive and meaningful labels, as-well-as remove a few of the columns that aren't as  
+necessary for the purpose of this project.&quot;&quot;&quot;</span></pre>
+</body>
+</html>
