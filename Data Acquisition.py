@@ -10,7 +10,10 @@ import pandas as pd
 import csv
 import statistics
 
-df = pd.read_csv (r'C:\Users\dilla\OneDrive\Documents\School\MIS 5400\Final Project\adult-income.csv')
+import pypyodbc as pypyodbc
+
+
+df = pd.read_csv (r'https://github.com/Dsmity/MIS-5400-Final-Project.git/adult-income.csv')
 
 df.rename(columns={'39': 'Age'}, inplace=True)
 df.rename(columns={'State-gov': 'Sector'}, inplace=True)
@@ -19,9 +22,6 @@ df.rename(columns={'Never-married': 'Marital status'}, inplace=True)
 df.rename(columns={'Adm-clerical': 'Employment field'}, inplace=True)
 df.rename(columns={'White': 'Race'}, inplace=True)
 df.rename(columns={'Male': 'Gender'}, inplace=True)
-df.rename(columns={'40': 'Hrs per wk'}, inplace=True)
-df.rename(columns={'United-States': 'Native nationality', }, inplace=True)
-df.rename(columns={'<=50K': 'Income bracket'}, inplace=True)
 df = df.drop(df.columns[[2, 4, 7, 10, 11]], axis=1)
 df = df.drop(df)
 
